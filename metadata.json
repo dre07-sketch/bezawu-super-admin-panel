@@ -1,0 +1,7 @@
+{
+  "name": "Bezaw Super Admin",
+  "description": "A high-performance super admin platform for the Bezaw drive-through supermarket system, featuring full analytics, commission tracking, and branch management with a Fresh Market Professional aesthetic.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
