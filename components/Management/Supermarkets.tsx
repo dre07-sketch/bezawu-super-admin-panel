@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Plus, Search, Filter, Eye, X, Globe, Phone, Mail, Landmark, ShieldCheck, ShieldAlert, Download, CheckCircle, AlertCircle, Wallet, Users, Layers, TrendingUp, Radar } from 'lucide-react';
+import { Plus, Search, Filter, Eye, X, Globe, Phone, Mail, Landmark, ShieldCheck, ShieldAlert, Download, CheckCircle, AlertCircle, Wallet, Users, Layers, TrendingUp, Radar, Store } from 'lucide-react';
 
 interface SupermarketsProps {
   theme?: 'light' | 'dark';
@@ -182,15 +182,12 @@ const Supermarkets: React.FC<SupermarketsProps> = ({ theme = 'dark' }) => {
                   <div className="absolute top-0 right-0 w-24 h-24 bg-purple-500/5 blur-3xl rounded-full -mr-12 -mt-12"></div>
                   <div className="flex items-center gap-3 mb-4">
                     <div className={`p-2 rounded-xl ${isDark ? 'bg-purple-500/10 text-purple-400' : 'bg-purple-50 text-purple-600'}`}>
-                      <Layers size={16} />
+                      <Store size={16} />
                     </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-1 h-1 rounded-full bg-purple-500 animate-ping"></div>
-                      <span className={`text-[8px] font-black uppercase tracking-widest ${isDark ? 'text-white/20' : 'text-gray-400'}`}>Inventory</span>
-                    </div>
+                    <span className={`text-[8px] font-black uppercase tracking-widest ${isDark ? 'text-white/20' : 'text-gray-400'}`}>Branches</span>
                   </div>
                   <p className={`text-3xl font-black font-poppins tracking-tighter ${isDark ? 'text-white' : 'text-gray-950'}`}>
-                    {selectedEntity.total_inventory.toLocaleString()}
+                    {selectedEntity.branches.toLocaleString()}
                   </p>
                 </div>
              </div>
@@ -203,14 +200,10 @@ const Supermarkets: React.FC<SupermarketsProps> = ({ theme = 'dark' }) => {
                   <Radar size={14} className="text-emerald-500" />
                   <h4 className={`text-[9px] font-black uppercase tracking-[0.5em] ${isDark ? 'text-white/20' : 'text-gray-400'}`}>Fiscal Verification</h4>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 gap-4">
                   <div className={`p-4 rounded-2xl border ${isDark ? 'bg-white/[0.05] border-white/10' : 'bg-white/40 border-black/5'}`}>
                     <p className={`text-[8px] font-black uppercase tracking-widest mb-1 ${isDark ? 'text-white/20' : 'text-gray-400'}`}>TIN Identifier</p>
                     <p className={`text-sm font-black font-mono tracking-tighter ${isDark ? 'text-white' : 'text-gray-950'}`}>{selectedEntity.tin}</p>
-                  </div>
-                  <div className={`p-4 rounded-2xl border ${isDark ? 'bg-white/[0.05] border-white/10' : 'bg-white/40 border-black/5'}`}>
-                    <p className={`text-[8px] font-black uppercase tracking-widest mb-1 ${isDark ? 'text-white/20' : 'text-gray-400'}`}>Cluster Nodes</p>
-                    <p className={`text-sm font-black tracking-tighter ${isDark ? 'text-white' : 'text-gray-950'}`}>{selectedEntity.branches}</p>
                   </div>
                 </div>
               </section>
@@ -382,7 +375,7 @@ const SupermarketTableRow: React.FC<{ entity: Supermarket; isDark: boolean; onVi
     <td className="px-10 py-7">
       <div className="flex items-center gap-3">
         <div className={`w-2 h-2 rounded-full animate-pulse ${entity.status === 'OPERATIONAL' ? 'bg-emerald-500 shadow-[0_0_10px_#10b981]' : entity.status === 'PENDING' ? 'bg-amber-500 shadow-[0_0_10px_#f59e0b]' : 'bg-rose-500 shadow-[0_0_10px_#f43f5e]'}`}></div>
-        <span className={`text-[10px] font-black uppercase tracking-widest ${isDark ? 'text-white/60' : 'text-gray-600'}`}>
+        <span className={`text-[10px] font-black uppercase tracking-widest ${isDark ? 'text-white/60' : 'text-gray-700'}`}>
           {entity.status}
         </span>
       </div>

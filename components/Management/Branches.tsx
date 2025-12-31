@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { 
   MapPin, Phone, Mail, User, Box, ShieldCheck, 
-  Search, Filter, Plus, Eye, X, ExternalLink, 
+  Search, Filter, Eye, X, ExternalLink, 
   Activity, Tag, DollarSign, Package, UserCheck, AlertCircle,
   TrendingUp, Users, Wallet, Layers, Radar, Database,
   Zap, Power, ShieldAlert, Lock, Unlock, Globe, ChevronRight,
@@ -208,7 +208,7 @@ const Branches: React.FC<BranchesProps> = ({ theme = 'dark' }) => {
         <div className="flex-1 overflow-y-auto custom-scrollbar p-8 space-y-10">
           
           {/* Node Metrics */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <MetricCard 
               icon={<DollarSign size={18} />} 
               label="Net Yield" 
@@ -228,13 +228,6 @@ const Branches: React.FC<BranchesProps> = ({ theme = 'dark' }) => {
               label="Inventory" 
               value={selectedBranch.products.length.toString()} 
               color="purple" 
-              isDark={isDark} 
-            />
-            <MetricCard 
-              icon={<Activity size={18} />} 
-              label="Health" 
-              value="98.2%" 
-              color="emerald" 
               isDark={isDark} 
             />
           </div>
@@ -379,17 +372,14 @@ const Branches: React.FC<BranchesProps> = ({ theme = 'dark' }) => {
           </div>
         </div>
 
-        <div className={`p-8 border-t flex items-center justify-between gap-8 ${isDark ? 'border-white/10 bg-black/40' : 'border-black/5 bg-gray-50'}`}>
-          <div className="flex items-center gap-4">
+        <div className={`p-8 border-t flex items-center justify-end gap-8 ${isDark ? 'border-white/10 bg-black/40' : 'border-black/5 bg-gray-50'}`}>
+          <div className="flex items-center gap-4 mr-auto">
             <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${isDark ? 'bg-emerald-500/10 text-emerald-500' : 'bg-emerald-100 text-emerald-600 shadow-sm'}`}>
               <ShieldCheck size={20} />
             </div>
             <p className={`text-[10px] font-black uppercase tracking-widest ${isDark ? 'text-white' : 'text-gray-950'}`}>Audit Ledger Synchronized</p>
           </div>
-          <div className="flex gap-3">
-             <button onClick={closeModal} className={`px-10 py-3 rounded-xl text-[9px] font-black uppercase tracking-widest border transition-all ${isDark ? 'border-white/10 text-white/30 hover:text-white hover:bg-white/5' : 'border-black/10 text-gray-400 hover:text-black hover:bg-gray-100 shadow-sm'}`}>Exit Node</button>
-             <button className="px-12 py-3 btn-primary text-[9px] font-black uppercase tracking-widest rounded-xl shadow-lg">Commit Protocol</button>
-          </div>
+          <button onClick={closeModal} className={`px-10 py-3 rounded-xl text-[9px] font-black uppercase tracking-widest border transition-all ${isDark ? 'border-white/10 text-white/30 hover:text-white hover:bg-white/5' : 'border-black/10 text-gray-500 hover:text-black hover:bg-gray-100 shadow-sm'}`}>Exit Node</button>
         </div>
       </div>
     </div>
@@ -402,10 +392,6 @@ const Branches: React.FC<BranchesProps> = ({ theme = 'dark' }) => {
           <h1 className={`text-4xl font-black font-poppins tracking-tighter uppercase ${isDark ? 'text-white' : 'text-gray-950'}`}>Branch Clusters</h1>
           <p className={`text-[10px] font-bold uppercase tracking-[0.4em] mt-1 ${isDark ? 'text-white/30' : 'text-gray-500'}`}>Operational Node Deployment // Real-time Flux</p>
         </div>
-        <button className={`btn-primary px-8 py-4 text-[10px] uppercase tracking-[0.3em] shadow-2xl ${isDark ? 'shadow-emerald-500/10' : ''}`}>
-          <Plus size={16} />
-          Deploy New Hub
-        </button>
       </div>
 
       {/* Global Status Stream */}

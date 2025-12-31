@@ -105,7 +105,7 @@ const Settings: React.FC<SettingsProps> = ({ theme = 'bezaw-terminal', mode = 'd
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         
-        {/* ROW 1 LEFT: Identity Rotation (Priority 1) */}
+        {/* ROW 1 LEFT: Identity Rotation */}
         <div className="lg:col-span-7 space-y-8">
           <section className="glass-card p-10 relative overflow-hidden transition-all bg-[var(--bg-card)] border-[var(--border-color)]">
              <div className="flex items-center gap-4 mb-8">
@@ -140,7 +140,7 @@ const Settings: React.FC<SettingsProps> = ({ theme = 'bezaw-terminal', mode = 'd
           </section>
         </div>
 
-        {/* ROW 1 RIGHT: Emergency Protocols (Priority 2) */}
+        {/* ROW 1 RIGHT: Emergency Protocols */}
         <div className="lg:col-span-5 space-y-8">
           <section className="glass-card p-10 relative overflow-hidden transition-all bg-rose-500 bg-opacity-5 border-rose-500 border-opacity-20">
              <div className="flex items-center gap-4 mb-8">
@@ -217,25 +217,28 @@ const Settings: React.FC<SettingsProps> = ({ theme = 'bezaw-terminal', mode = 'd
                     onClick={() => handleThemeSelect(t.id)}
                     className={`group relative p-6 rounded-[2.5rem] border transition-all flex items-center justify-between text-left ${
                       selectedThemeId === t.id 
-                        ? 'bg-[var(--accent)] bg-opacity-5 border-[var(--accent)] border-opacity-40 shadow-lg' 
+                        ? 'bg-[var(--accent)] border-[var(--accent)] border-opacity-40 shadow-lg' 
                         : 'bg-[var(--bg-input)] border-transparent hover:border-[var(--border-color)]'
                     }`}
                   >
                     <div className="flex items-center gap-6">
                       <div className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all ${
                         selectedThemeId === t.id 
-                          ? 'bg-[var(--accent)] text-white shadow-lg' 
+                          ? 'bg-white/20 text-white shadow-lg' 
                           : 'bg-[var(--bg-primary)] text-[var(--text-secondary)]'
                       }`}>
                         {t.icon}
                       </div>
                       <div>
                         <div className="flex items-center gap-2">
-                          <p className={`text-sm font-black uppercase tracking-tight ${selectedThemeId === t.id ? 'text-[var(--text-primary)]' : 'text-[var(--text-secondary)]'}`}>{t.name}</p>
-                          {selectedThemeId === t.id && <Check size={14} className="text-[var(--accent)]" />}
+                          <p className={`text-sm font-black uppercase tracking-tight ${selectedThemeId === t.id ? 'text-white' : 'text-[var(--text-primary)] opacity-60'}`}>{t.name}</p>
+                          {selectedThemeId === t.id && <Check size={14} className="text-white" />}
                         </div>
-                        <p className={`text-[9px] font-black uppercase tracking-widest mb-1 text-[var(--accent)] opacity-80`}>{t.vibe}</p>
-                        <p className={`text-[10px] font-medium leading-relaxed max-w-md text-[var(--text-secondary)] opacity-60`}>{t.description}</p>
+                        <p className={`text-[9px] font-black uppercase tracking-widest mb-1 ${selectedThemeId === t.id ? 'text-white/80' : 'text-[var(--accent)] opacity-80'}`}>{t.vibe}</p>
+                        {/* THEME DESCRIPTION - Updated to ensure visibility */}
+                        <p className={`text-[10px] font-medium leading-relaxed max-w-md ${selectedThemeId === t.id ? 'text-white' : 'text-[var(--text-primary)] opacity-80'}`}>
+                          {t.description}
+                        </p>
                       </div>
                     </div>
                     
@@ -250,7 +253,7 @@ const Settings: React.FC<SettingsProps> = ({ theme = 'bezaw-terminal', mode = 'd
           </section>
         </div>
 
-        {/* ROW 2 RIGHT: Yield Logic (Commission) */}
+        {/* ROW 2 RIGHT: Yield Logic */}
         <div className="lg:col-span-5 space-y-8">
           <section className="glass-card p-10 relative overflow-hidden transition-all bg-[var(--bg-card)] border-[var(--border-color)]">
              <div className="flex items-center gap-4 mb-8">

@@ -32,7 +32,7 @@ const Layout: React.FC<LayoutProps> = ({ onLogout, theme, mode, onModeToggle }) 
           </div>
         </div>
 
-        <nav className="flex-1 p-6 space-y-1.5 overflow-y-auto custom-scrollbar">
+        <nav className="flex-1 p-6 space-y-2 overflow-y-auto custom-scrollbar">
           <SidebarLink to="/dashboard" icon={<LayoutDashboard size={18} />} label="Dashboard" />
           <SidebarLink to="/supermarkets" icon={<Store size={18} />} label="Supermarkets" />
           <SidebarLink to="/branches" icon={<MapPin size={18} />} label="Branches" />
@@ -106,14 +106,14 @@ const SidebarLink: React.FC<{ to: string, icon: React.ReactNode, label: string }
     className={({ isActive }) => `
       flex items-center px-4 py-3.5 space-x-4 rounded-2xl transition-all font-bold text-[11px] uppercase tracking-widest
       ${isActive 
-        ? 'bg-opacity-10 text-[var(--text-primary)] bg-[var(--text-primary)] border border-[var(--border-color)] shadow-lg' 
-        : 'opacity-40 hover:opacity-100 hover:text-[var(--text-primary)] hover:bg-opacity-5'}
+        ? 'bg-[var(--text-primary)] text-[var(--bg-primary)] shadow-[0_10px_25px_rgba(0,0,0,0.15)] scale-[1.02]' 
+        : 'opacity-40 hover:opacity-100 hover:text-[var(--text-primary)] hover:bg-white/5'}
     `}
   >
     {({ isActive }) => (
       <>
         <span className={isActive ? 'text-[var(--accent)]' : ''}>{icon}</span>
-        <span>{label}</span>
+        <span className={isActive ? 'text-[var(--bg-primary)]' : ''}>{label}</span>
       </>
     )}
   </NavLink>
