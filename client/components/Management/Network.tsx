@@ -35,7 +35,7 @@ const Network: React.FC<{ theme?: 'light' | 'dark' }> = ({ theme = 'dark' }) => 
   const fetchTelemetry = async () => {
     try {
       const token = localStorage.getItem('authToken');
-      const response = await axios.get('http://superadminapi.ristestate.com/api/network/telemetry', {
+      const response = await axios.get('https://superadminapi.ristestate.com/api/network/telemetry', {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (response.data.success) {
@@ -287,3 +287,4 @@ const HealthStat = ({ icon, label, value, isDark }: any) => (
 );
 
 export default Network;
+

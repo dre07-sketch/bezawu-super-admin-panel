@@ -29,7 +29,7 @@ const AuditLogs: React.FC<{ theme?: 'light' | 'dark' }> = ({ theme = 'dark' }) =
     try {
       setLoading(true);
       const token = localStorage.getItem('authToken');
-      const response = await axios.get(`http://superadminapi.ristestate.com/api/audit-logs?search=${searchTerm}&severity=${filter}`, {
+      const response = await axios.get(`https://superadminapi.ristestate.com/api/audit-logs?search=${searchTerm}&severity=${filter}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (response.data.success) {
@@ -326,3 +326,4 @@ const AuditLogs: React.FC<{ theme?: 'light' | 'dark' }> = ({ theme = 'dark' }) =
 };
 
 export default AuditLogs;
+

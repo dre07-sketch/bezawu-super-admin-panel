@@ -24,7 +24,7 @@ const ForgotPassword: React.FC<Props> = ({ onNext, onBack }) => {
     setSuccess(false);
 
     try {
-      const response = await fetch('http://superadminapi.ristestate.com/api/auth/forgot-password', {
+      const response = await fetch('https://superadminapi.ristestate.com/api/auth/forgot-password', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -114,3 +114,4 @@ const ForgotPassword: React.FC<Props> = ({ onNext, onBack }) => {
 };
 
 export default ForgotPassword;
+

@@ -33,7 +33,7 @@ const Layout: React.FC<LayoutProps> = ({ onLogout, theme, mode, onModeToggle }) 
           return;
         }
 
-        const response = await axios.get('http://superadminapi.ristestate.com/api/auth/me', {
+        const response = await axios.get('https://superadminapi.ristestate.com/api/auth/me', {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -172,3 +172,4 @@ const SidebarLink: React.FC<{ to: string, icon: React.ReactNode, label: string }
 );
 
 export default Layout;
+

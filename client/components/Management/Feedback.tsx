@@ -45,7 +45,7 @@ const Feedback: React.FC<FeedbackProps> = ({ theme = 'dark' }) => {
     try {
       setLoading(true);
       const token = localStorage.getItem('authToken');
-      const response = await axios.get(`http://superadminapi.ristestate.com/api/feedback?search=${searchTerm}&sentiment=${filter}`, {
+      const response = await axios.get(`https://superadminapi.ristestate.com/api/feedback?search=${searchTerm}&sentiment=${filter}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (response.data.success) {
@@ -211,3 +211,4 @@ const Feedback: React.FC<FeedbackProps> = ({ theme = 'dark' }) => {
 };
 
 export default Feedback;
+

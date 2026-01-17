@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Mail, Lock, ArrowRight, Zap, AlertCircle } from 'lucide-react';
+import { Mail, Lock, ArrowRight, Zap, AlertCircle, Eye, EyeOff } from 'lucide-react';
 
 interface LoginProps {
   onLogin: (token: string, admin: any) => void;
@@ -12,6 +12,7 @@ const Login: React.FC<LoginProps> = ({ onLogin, onForgot }) => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,7 +20,7 @@ const Login: React.FC<LoginProps> = ({ onLogin, onForgot }) => {
     setError('');
 
     try {
-      const response = await fetch('http://superadminapi.ristestate.com/api/auth/login', {
+      const response = await fetch('https://superadminapi.ristestate.com/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -90,14 +91,22 @@ const Login: React.FC<LoginProps> = ({ onLogin, onForgot }) => {
           <div className="relative">
             <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20" size={18} />
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full pl-12 pr-6 py-4 glass-input placeholder:text-white/10 text-sm font-medium"
+              className="w-full pl-12 pr-12 py-4 glass-input placeholder:text-white/10 text-sm font-medium"
               placeholder="••••••••••••"
               disabled={loading}
             />
+            <button
+              type="button"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-white/20 hover:text-white/60 transition-colors"
+              onClick={() => setShowPassword(!showPassword)}
+              disabled={loading}
+            >
+              {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+            </button>
           </div>
         </div>
       </div>
@@ -123,3 +132,4 @@ const Login: React.FC<LoginProps> = ({ onLogin, onForgot }) => {
 };
 
 export default Login;
+

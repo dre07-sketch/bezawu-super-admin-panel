@@ -87,8 +87,8 @@ const Settings: React.FC<SettingsProps> = ({ theme = 'bezaw-terminal', mode = 'd
       const headers = { Authorization: `Bearer ${token}` };
 
       const [userRes, configRes] = await Promise.all([
-        axios.get('http://superadminapi.ristestate.com/api/auth/me', { headers }),
-        axios.get('http://superadminapi.ristestate.com/api/system/config', { headers })
+        axios.get('https://superadminapi.ristestate.com/api/auth/me', { headers }),
+        axios.get('https://superadminapi.ristestate.com/api/system/config', { headers })
       ]);
 
       if (userRes.data.success) {
@@ -117,7 +117,7 @@ const Settings: React.FC<SettingsProps> = ({ theme = 'bezaw-terminal', mode = 'd
   const updateConfig = async (name: string, value: any) => {
     try {
       const token = localStorage.getItem('authToken');
-      await axios.post('http://superadminapi.ristestate.com/api/system/update', { name, value }, {
+      await axios.post('https://superadminapi.ristestate.com/api/system/update', { name, value }, {
         headers: { Authorization: `Bearer ${token}` }
       });
     } catch (error) {
@@ -132,7 +132,7 @@ const Settings: React.FC<SettingsProps> = ({ theme = 'bezaw-terminal', mode = 'd
     }
     try {
       const token = localStorage.getItem('authToken');
-      const response = await axios.post('http://superadminapi.ristestate.com/api/auth/change-password', {
+      const response = await axios.post('https://superadminapi.ristestate.com/api/auth/change-password', {
         newPassword: newPass
       }, {
         headers: { Authorization: `Bearer ${token}` }
@@ -437,3 +437,4 @@ const HealthItem = ({ label, value, isDark }: any) => (
 );
 
 export default Settings;
+

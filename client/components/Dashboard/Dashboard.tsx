@@ -70,7 +70,7 @@ const Dashboard: React.FC<DashboardProps> = ({ theme = 'dark' }) => {
           headers: { Authorization: `Bearer ${token}` }
         };
 
-        const baseUrl = 'http://superadminapi.ristestate.com/api/dashboard';
+        const baseUrl = 'https://superadminapi.ristestate.com/api/dashboard';
 
         const [statsRes, chartRes, supermarketsRes, productsRes] = await Promise.all([
           axios.get(`${baseUrl}/stats`, config),
@@ -427,3 +427,4 @@ const StatCard: React.FC<{
 );
 
 export default Dashboard;
+

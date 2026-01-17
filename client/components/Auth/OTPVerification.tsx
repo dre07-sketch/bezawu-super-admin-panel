@@ -43,7 +43,7 @@ const OTPVerification: React.FC<OTPProps> = ({ email, onVerified, onBack }) => {
     setError('');
 
     try {
-      const response = await fetch('http://superadminapi.ristestate.com/api/auth/verify-otp', {
+      const response = await fetch('https://superadminapi.ristestate.com/api/auth/verify-otp', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -80,7 +80,7 @@ const OTPVerification: React.FC<OTPProps> = ({ email, onVerified, onBack }) => {
   const handleResend = async () => {
     setError('');
     try {
-      const response = await fetch('http://superadminapi.ristestate.com/api/auth/forgot-password', {
+      const response = await fetch('https://superadminapi.ristestate.com/api/auth/forgot-password', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -171,3 +171,4 @@ const OTPVerification: React.FC<OTPProps> = ({ email, onVerified, onBack }) => {
 };
 
 export default OTPVerification;
+
