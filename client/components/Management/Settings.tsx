@@ -2,9 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import {
-  Settings as SettingsIcon, ShieldAlert, Power, Lock, Key,
+  Settings as SettingsIcon, ShieldAlert, Lock, Key,
   Percent, Clock, Database, RefreshCcw, BellRing,
-  ShieldCheck, AlertTriangle, Fingerprint, Save, Info,
+  AlertTriangle, Fingerprint, Save, Info,
   Palette, Layout, Check, Sparkles, Zap, Leaf, Monitor,
   Sun, Moon
 } from 'lucide-react';
@@ -163,7 +163,7 @@ const Settings: React.FC<SettingsProps> = ({ theme = 'bezaw-terminal', mode = 'd
       <div className="flex justify-between items-end">
         <div>
           <h1 className={`text-4xl font-black font-poppins tracking-tighter uppercase ${isDark ? 'text-white' : 'text-gray-950'}`}>System Configuration</h1>
-          <p className={`text-xs font-bold uppercase tracking-[0.4em] mt-1 ${isDark ? 'text-white' : 'text-gray-500'} opacity-40`}>Kernel v9.4 // Global Protocol Hub</p>
+          
         </div>
         <div className="flex gap-4">
           <div className="px-6 py-3 glass-card flex items-center gap-4 text-[var(--accent)]">
@@ -255,7 +255,7 @@ const Settings: React.FC<SettingsProps> = ({ theme = 'bezaw-terminal', mode = 'd
                 }}
                 isDark={isDark}
               />
-              <ProtocolToggle
+              {/* <ProtocolToggle
                 label="Branch Killswitch"
                 description="Revoke access to all branch management panels."
                 active={isBranchesOffline}
@@ -265,24 +265,9 @@ const Settings: React.FC<SettingsProps> = ({ theme = 'bezaw-terminal', mode = 'd
                   updateConfig('GLOBAL_SHUTDOWN', newState ? 'active' : 'inactive');
                 }}
                 isDark={isDark}
-              />
+              /> */}
 
-              <div className="p-6 rounded-3xl border-2 border-dashed border-rose-500 border-opacity-30 bg-black bg-opacity-20 flex flex-col items-center text-center">
-                <Power size={32} className="text-rose-500 mb-4 animate-pulse" />
-                <p className={`text-xs font-black uppercase tracking-widest mb-2 ${isDark ? 'text-white' : 'text-gray-950'}`}>Full Platform Blackout</p>
-                <p className={`text-[10px] font-medium leading-relaxed mb-6 ${isDark ? 'text-white' : 'text-gray-500'} opacity-40`}>Requires master-key bypass to execute.</p>
-                <button
-                  onClick={() => {
-                    if (confirm('INITIATE FULL PLATFORM BLACKOUT? THIS CANNOT BE UNDONE WITHOUT MANUAL KERNEL BYPASS.')) {
-                      updateConfig('OMNILOCKDOWN_HUB', 'active');
-                      alert('BLACKOUT INITIATED');
-                    }
-                  }}
-                  className="w-full bg-rose-600 hover:bg-rose-700 text-white py-4 rounded-2xl text-[10px] font-black uppercase tracking-[0.3em] transition-all shadow-xl shadow-rose-600/30"
-                >
-                  Initiate Blackout
-                </button>
-              </div>
+
             </div>
           </section>
         </div>
@@ -396,17 +381,7 @@ const Settings: React.FC<SettingsProps> = ({ theme = 'bezaw-terminal', mode = 'd
             </div>
           </section>
 
-          <section className="glass-card p-8 bg-white/[0.01] border-white/5">
-            <div className="flex items-center gap-4 mb-4">
-              <ShieldCheck className="text-emerald-500" size={18} />
-              <span className={`text-[10px] font-black uppercase tracking-widest ${isDark ? 'text-white' : 'text-gray-950'}`}>System Health Matrix</span>
-            </div>
-            <div className="space-y-4">
-              <HealthItem label="Core Latency" value="12ms" isDark={isDark} />
-              <HealthItem label="Sync Interval" value="2.4s" isDark={isDark} />
-              <HealthItem label="API Uptime" value="99.98%" isDark={isDark} />
-            </div>
-          </section>
+
         </div>
 
       </div>
@@ -429,12 +404,7 @@ const ProtocolToggle = ({ label, description, active, onToggle, isDark }: any) =
   </div>
 );
 
-const HealthItem = ({ label, value, isDark }: any) => (
-  <div className="flex justify-between items-center text-[10px] font-bold">
-    <span className={`uppercase tracking-widest ${isDark ? 'text-white' : 'text-gray-500'} opacity-40`}>{label}</span>
-    <span className={`${isDark ? 'text-white' : 'text-gray-950'}`}>{value}</span>
-  </div>
-);
+
 
 export default Settings;
 

@@ -87,7 +87,7 @@ const AuthFlow: React.FC<AuthFlowProps> = ({ onLoginSuccess }) => {
 
         <div className="mt-12 text-center">
           <p className="text-white/20 text-[10px] font-bold uppercase tracking-[0.4em]">
-            Tech-Forward Logistics Engine v6.1
+            
           </p>
         </div>
       </div>
